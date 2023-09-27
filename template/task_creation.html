@@ -1,0 +1,139 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+Task creation form
+{% endblock title%}
+
+{% block taskcreation%}
+
+<section>
+<div class="row">
+  <div class="col-lg-6 m-auto">
+  <div class="card mt-5">
+
+    <div class="d-flex justify-content-center">
+      <h2 id="form-title" style="color:#63110a;">Management Form Fillup</h2>
+    </div>
+    
+    <div class="card-body shadow-lg border-top border-right border-dark">
+
+      <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %} 
+
+      <div class="input-group-lg mb-3 shadow-lg rounded-right">
+            <div class="input-group-prepend">
+            <span class="input-group-text w-100">
+            <i class="fa fa-user fa-2x" style="color:#63110a;"></i>
+            <h4 style="color:#63110a;"> Title</h4>
+            </span>
+            </div>
+            <input type="text" Required name="title" style="height:50px;" class="form-control py-4" placeholder="Title name...">
+           
+      </div>
+
+      <div class="input-group-lg mb-3 shadow-lg rounded-right">
+        <div class="input-group-prepend">
+        <span class="input-group-text w-100">
+        <i class="fa fa-user fa-2x" style="color:#63110a;"></i>
+        <h4 style="color:#63110a;"> Description</h4>
+        </span>
+        </div>
+        <input type="text" Required name="description" style="height:50px;" class="form-control py-4" placeholder="Enter description...">
+       
+  </div>
+
+  <div class="input-group-lg mb-3 shadow-lg rounded-right">
+    <div class="input-group-prepend">
+    <span class="input-group-text w-100">
+    <i class="fa fa-user fa-2x" style="color:#63110a;"></i>
+    <h4 style="color:#63110a;"> Due date</h4>
+    </span>
+    </div>
+    <input type="date" Required name="due_date" style="height:50px;" class="form-control py-4" placeholder="Enter due_date...">
+   
+</div>
+
+      <div class="input-group-lg mb-3 shadow-lg rounded-right">
+        <div class="input-group-prepend">
+        <span class="input-group-text w-100">
+        <i class="fas fa-file-image fa-2x" style="color:#63110a;"></i>
+        <h4 style="color:#63110a;"> Add Image</h4>
+        </span>
+        </div>
+        <input type="file" Required name="photo" style="height:50px;" class="form-control py-4"  placeholder="Add image">
+    </div>
+
+    <div class="input-group-lg mb-3 shadow-lg rounded-right">
+      <div class="input-group-prepend">
+        <span class="input-group-text w-100">
+        <i class="fas fa-file-image fa-2x" style="color:#63110a;"></i>
+        <h4 style="color:#63110a;">option_priority choice</h4>
+        </span>
+        </div>
+
+      <select Required name="option_priority" class="form-control" id="exampleFormControlSelect1">
+      <option selected>Choose...</option>  
+        <option>Low</option>
+        <option>Media</option>
+        <option>High</option>
+      </select>
+
+  </div>
+
+
+  <div class="input-group-lg mb-3 shadow-lg rounded-right">
+    <div class="input-group-prepend">
+      <span class="input-group-text w-100">
+      <i class="fas fa-file-image fa-2x" style="color:#63110a;"></i>
+      <h4 style="color:#63110a;">task_complete choice</h4>
+      </span>
+      </div>
+
+    <select Required name="task_complete" class="form-control" id="exampleFormControlSelect1">
+    <option selected>Choose...</option>  
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+</div>
+
+    <div class="input-group-lg mb-3 shadow-lg rounded-right">
+      <div class="input-group-prepend">
+      <span class="input-group-text w-100">
+      <i class="fa fa-user fa-2x" style="color:#63110a;"></i>
+      <h4 style="color:#63110a;"> create_time date</h4>
+      </span>
+      </div>
+      <input type="time" Required name="create_time" style="height:50px;" class="form-control py-4" placeholder="Enter due_date...">
+     
+  </div>
+  
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-lg btn-center btn-primary text-center">Please Add</button>
+    </div>
+
+     <!--messages set -->
+     {% if messages %}
+
+     {% for message in messages %}
+     <h2 {% if message.tags %} class="{{message.tags}}" {% endif %}>
+     {{message}}
+     </h2>
+     {% endfor %}
+
+     {% endif %}<!--end messages.it is set in form a-->
+  
+    </form>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+      
+
+
+{% endblock taskcreation%}

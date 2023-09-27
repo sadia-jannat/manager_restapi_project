@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+Task search by title
+{% endblock title%}
+
+{% block search%}
+
+<section>
+    <div class="container-fluid text-light py-2 px-2 rounded shadow rounded rounded-pill" style="background-color: #abb0b6;" >
+        <header class="text-center">
+            <h4>Search</h4>
+        </header>
+    </div>
+
+    <!--search-->
+    <div class="container">  
+        <div class="row mb-5"> 
+         <div class="col-lg-12 mx-auto">  
+            
+            <!--search start-->  
+            <div class="bg-white p-5 m-5 rounded shadow rounded rounded-pill">  
+                       
+                  <div class="input-group">  
+                
+                    <form action="" method="get" class="d-flex">
+
+                      <input class="form-control rounded rounded-pill m-4 border-dark border-5 bg-transparent " type="text" name="query" placeholder="Enter title... " aria-label="Search " >
+                      <input class="form-control rounded rounded-pill m-4 border-dark border-5 bg-transparent " type="text" name="querydue_date" placeholder="Due date... " aria-label="Search " >
+                      <input class="form-control rounded rounded-pill m-4 border-dark border-5 bg-transparent " type="text" name="querypriority" placeholder="Enter priority... " aria-label="Search " >
+                      <input class="form-control rounded rounded-pill m-4 border-dark border-5 bg-transparent " type="text" name="querycomplete" placeholder="Task complete... " aria-label="Search " >
+                      <input class="form-control rounded rounded-pill m-4 border-dark border-5 bg-transparent " type="text" name="querycreatedate" placeholder="Create date... " aria-label="Search " >
+                      
+                      <div class="input-group-append"> 
+                      <button style="background-color: #686b6e;" class="btn  rounded rounded-pill m-4 border-5 "><i class="fa fa-search fa-1x" style="color: white;"> </i></button>
+                      </div>
+      
+                  </form>  
+                  
+                  </div>  
+                
+          </div> 
+    <!--end search start--> 
+    <span>You can search  one by one or any two options or togetherly</span>
+          </div>  
+        </div>     
+      </div>  
+    </section>
+  <!--end-->  
+
+    <!--search result-->
+    <section>
+        {% if product %}
+          
+                    
+          
+        <table class="table table-bordered table-striped ">
+          <thead class="thead-dark">
+            <tr>
+            
+              <th scope="col">Title</th>
+              <th scope="col">Due Date</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Task Complate</th>
+              <th scope="col">Create Time</th>
+              <th scope="col">Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+    
+          {% for p in product %}
+    
+          <tr>
+            
+            <th scope="row">{{p.title}}</th>
+            <th scope="row">{{p.due_date}}</th>
+            <th scope="row">{{p.option_priority}}</th>
+            <th scope="row">{{p.task_complete}}</th>
+            <th scope="row">{{p.create_time}}</th>
+            <th scope="row">{{p.photo}}</th>
+
+        </tr>
+         
+        {% endfor %}
+ 
+ </tbody>
+ </table>
+
+ 
+ {% else %}
+         <h6 style="color: rgb(10, 1, 1);">Search and see data</h6>
+{% endif %}
+    
+</section>
+<!--end result-->
+
+{% endblock search%}

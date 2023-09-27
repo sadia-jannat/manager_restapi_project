@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+{%load static %}
+
+<html>
+<head>
+<title>Researching Brain Tumor
+  {% block title%}{%endblock title%}
+</title>
+
+<!-- Latest compiled and minified CSS from bootstrap-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<!--extra Bootstrap from w3 schoool-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<!--static ar css file-->
+{%load static %}
+<link rel="stylesheet" href="{% static 'style.css'%}">
+
+<!--main.js static ar under a create-->
+<script type="text/javascript" src="{% static 'main.js' %}"></script>
+
+
+<!--arvo text fonts.awsome.link-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+<!--icon ar font-awsome link need-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+<!--script ar link-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script> 
+
+<!--js link all-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<style>
+    section{
+    padding: 20px;
+    margin: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: #051937;
+  }
+  
+.user_card {
+        width: 600px;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: #6C8785;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+    }
+
+    .user_card:hover{
+        -webkit-box-shadow: 5px 5px 20px 5px rgba(51,31,4,0.99); 
+        box-shadow: 5px 5px 20px 5px rgba(51,31,4,0.99);
+        }
+
+    .input-group{
+        width:100%;
+    }
+
+    .form_container {
+        margin-top: 20px;
+    }
+
+    #form-title{
+        color: #fff;
+        
+    }
+
+    .login_btn {
+        width: 80%;
+        background:  #051937 !important;
+        color: white !important;
+    }
+
+    .login_btn:hover{
+        width: 80%;
+        background-color:#92a8d1 !important;
+        
+    }
+    
+    .login_btn:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+    .login_container {
+        padding: 0 2rem;
+    }
+   
+    .input-group-text {
+        background: #f7ba5b !important;
+        
+        color: white !important;
+        border: 0 !important;
+        border-radius: 0.25rem 0 0 0.25rem !important;
+    }
+    .input_user,
+    .input_pass:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+
+    #messages{
+        background-color: grey;
+        color: #fff;
+        padding: 10px;
+        margin-top: 10px;
+    }
+</style>
+
+</head>
+<body>
+
+<!--registration start -->
+<section>
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+      <div class="user_card"> 
+      
+      <div class="d-flex justify-content-center">
+          <h3 id="form-title">REGISTER ACCOUNT</h3>
+      </div>
+      
+      <div class="d-flex justify-content-center form_container">
+        <form method="POST" action="">
+            {% csrf_token %}
+            
+        <div class="input-group mb-3">
+        <div class="input-group-append">
+        <span class="input-group-text"><i class="fas fa-user fas-2x"></i></span>
+        <label for="first_name">Enter Your Name</label> 
+        </div>
+        {{form.username}}
+        </div>
+        <div class="input-group mb-3">
+        <div class="input-group-append">
+        <span class="input-group-text"><i class="fas fa-envelope-open fas-2x"></i></span>
+        <label for="first_name">Enter Your Email</label>
+        </div> 
+        {{form.email}}
+        </div>
+        <div class="input-group mb-3">
+        <div class="input-group-append">
+        <span class="input-group-text"><i class="fas fa-key fas-2x"></i></span>
+        <label for="first_name">Enter Password</label>
+        </div> 
+        {{form.password1}}
+        </div>
+        <div class="input-group mb-3">
+        <div class="input-group-append">
+        <span class="input-group-text"><i class="fas fa-key fas-2x"></i></span>
+        <label for="first_name">Enter Re-password</label>
+        </div> 
+        {{form.password1}}
+        </div>
+        <strang>Eight or more digit number and character password need</strang>
+        <div class="d-flex justify-content-center mt-3 login_container">
+            <input class="btn login_btn" type="submit" value="Register Account">
+          </div>
+    </form>
+    </div>
+    
+    {{form.errors}}
+    
+    <!--login page-->
+    <div class="mt-4">
+        <div class="d-flex justify-content-center links">
+            Already have an account? <a href="{% url 'userlogin' %}" class="ml-2" style="color:#990D19;">Login</a>
+        </div>
+    </div>
+    <!--end-->
+    
+    
+    <!--messages set -->
+    {% if messages %}
+    
+    {% for message in messages %}
+     <h6 >{% if message.tags %} class="{{message.tags}}" {% endif %}
+     {{message}}
+     </h6>
+    {% endfor %}
+    
+    {% endif %}
+    
+    </div>
+    </div>
+    </div>
+    
+    </section>
+    
+    
+  
+    <script>
+            var form_fields = document.getElementsByTagName('input')
+            form_fields[1].placeholder='Username..';
+            form_fields[2].placeholder='Email..';
+            form_fields[3].placeholder='Enter password...';
+            form_fields[4].placeholder='Re-enter Password...';
+            for (var field in form_fields){	
+                form_fields[field].className += ' form-control'
+            }
+    </script>
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ <!-- Option 2: Separate Popper and Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+<!--Autocomplete javascript Link-->
+<script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+<!--end for javascripts-->
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>

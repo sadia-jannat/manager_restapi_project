@@ -1,0 +1,8 @@
+<h2>Edit here</h2>
+<form action="" method="post">
+{% csrf_token %}
+{{fo.as_p}}
+
+<input type="submit" value="Update">
+<a href="{% url 'task_list'  %}"> back to task list page</a>
+</form>

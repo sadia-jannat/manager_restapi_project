@@ -1,0 +1,72 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+Task creation form
+{% endblock title%}
+
+{% block tasklist%}
+
+<section>
+
+    <h1 style="text-align: center;" style="color: brown;">Task List</h1>
+    
+    <div class="content">
+    {% if taskall %}
+    
+    <table class="table table-bordered table-striped ">
+        <thead class="thead-dark">
+          <tr>
+
+        <th scope="col">Title</th>
+       <th scope="col">Description</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Option Priority</th>
+        <th scope="col">Task Complete</th>
+        <th scope="col">Create Time</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+        
+    </tr>
+</thead>
+<tbody>
+
+    {% for t in taskall%}
+
+  <tr>
+    
+    <th scope="row">{{t.title}}</th>
+   <th scope="row">{{t.description}}</th>
+    <td>{{t.due_date}}</td>
+    <td>{{t.photo}}</td>
+    <td>{{t.option_priority}}</td>
+    <td>{{t.task_complete}}</td>
+    <td>{{t.create_time}}</td>
+
+    <td>
+        <a href="{% url 'task_list_edit' t.id %}">Edit</a>    <!--edit ar jonno-->
+    </td>
+    
+    <td>
+        <form action="{% url 'task_list_delete' t.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+        </form>
+    </td>
+    
+</tr>
+     
+{%endfor%}
+
+</tbody>
+</table>
+
+{%endif%}
+
+</div>
+
+</section>
+
+{% endblock tasklist%}
